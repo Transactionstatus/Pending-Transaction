@@ -15,13 +15,13 @@ body{
 }
 
 /* TOP LOGO AREA */
-.top-logo-container {
-    padding: 20px 0 10px 25px;
-    background: #fff;
+.top-logo-container{
+    padding:20px 0 10px 25px;
+    background:#fff;
 }
-.paypal-logo {
-    width: 120px; /* Adjust based on image 1000025577.jpg */
-    display: block;
+.paypal-logo{
+    width:120px;
+    display:block;
 }
 
 /* CARD */
@@ -58,7 +58,7 @@ body{
     margin:0;
 }
 
-/* NOTICE / ALERT */
+/* NOTICE */
 .alert{
     background:#f0f6ff;
     border-left:4px solid #0070ba;
@@ -83,7 +83,6 @@ body{
 .label{ color:#6b7280; }
 .value{ font-weight:600; }
 
-/* STATUS COLORS */
 .approved{ color:#2e7d32; font-weight:600; }
 .pending{ color:#f59e0b; font-weight:600; }
 
@@ -98,12 +97,11 @@ body{
     overflow:hidden;
     margin:10px 0 14px;
 }
-
 .progress-bar{
     height:100%;
-    width:3%;
+    width:0%;
     background:linear-gradient(90deg,#0070ba,#005ea6);
-    transition: width 0.5s ease;
+    transition:width .5s ease;
 }
 
 /* SPINNER ROW */
@@ -116,7 +114,6 @@ body{
     border-radius:8px;
     margin-top:8px;
 }
-
 .spinner-ring{
     width:20px;
     height:20px;
@@ -125,6 +122,7 @@ body{
     border-top-color:#0070ba;
     animation:spin 1s linear infinite;
 }
+@keyframes spin{ to{ transform:rotate(360deg);} }
 
 /* BUTTON */
 button{
@@ -139,48 +137,62 @@ button{
     cursor:pointer;
     margin-top:25px;
 }
+button.processing{
+    background:#f59e0b;
+    cursor:not-allowed;
+}
+.btn-spinner{
+    width:16px;
+    height:16px;
+    border:2px solid rgba(255,255,255,.4);
+    border-top-color:#fff;
+    border-radius:50%;
+    display:none;
+    animation:spin .8s linear infinite;
+    margin-left:10px;
+}
 
-/* NAVIGATION LINKS (from image 1000025575.jpg) */
-.nav-footer-links {
-    max-width: 420px;
-    margin: 40px auto 20px auto;
-    padding: 0 20px;
-    display: grid;
+/* NAVIGATION LINKS */
+.nav-footer-links{
+    max-width:420px;
+    margin:40px auto 20px auto;
+    padding:0 20px;
+    display:grid;
     grid-template-columns: repeat(5, auto);
-    gap: 15px;
-    justify-content: start;
+    gap:15px;
+    justify-content:start;
 }
-.nav-footer-links a {
-    text-decoration: none;
-    color: #001C64;
-    font-weight: 500;
-    font-size: 15px;
+.nav-footer-links a{
+    text-decoration:none;
+    color:#001C64;
+    font-weight:500;
+    font-size:15px;
 }
-.nav-footer-links .break {
-    grid-column: 1 / -1;
-    display: flex;
-    gap: 15px;
+.nav-footer-links .break{
+    grid-column:1 / -1;
+    display:flex;
+    gap:15px;
 }
 
-/* PURPLE FOOTER (from image 1000025567.jpg) */
-.purple-footer {
-    background-color: #613191;
-    color: #ffffff;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    font-size: 14px;
-    margin-top: 20px;
+/* PURPLE FOOTER */
+.purple-footer{
+    background-color:#613191;
+    color:#ffffff;
+    padding:20px;
+    text-align:center;
+    position:relative;
+    font-size:14px;
+    margin-top:20px;
 }
-.up-arrow {
-    position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
+.up-arrow{
+    position:absolute;
+    right:25px;
+    top:50%;
+    transform:translateY(-50%);
+    color:white;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
 }
 
 /* TOAST */
@@ -200,114 +212,105 @@ button{
     transition:all .4s ease;
     z-index:999;
 }
-.toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
-
-@keyframes spin{ to{ transform:rotate(360deg);} }
-
-/* BUTTON PROCESSING */
-button.processing{ background:#f59e0b; cursor:not-allowed; }
-.btn-spinner{
-    width:16px;
-    height:16px;
-    border:2px solid rgba(255,255,255,.4);
-    border-top-color:#fff;
-    border-radius:50%;
-    display:none;
-    animation:spin .8s linear infinite;
-    margin-left: 10px;
+.toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
 }
 </style>
 </head>
 
 <body>
 
-<div class="toast" id="toast">
-    ⏳ Fee verification started. Awaiting confirmation…
-</div>
 
 <div class="top-logo-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="paypal-logo">
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="paypal-logo">
 </div>
+
 <div class="card">
 
-    <div class="alert">
-        ⏳ <b>TRANSACTION OF <b>$1,785</b> IN PROGRESS</b><br><br>
-        <b>Note:</b> We'll send the recipient an email once the transaction is completed, but it may be quicker to share this link with them. 
-    </div>
+<div class="alert">
+⏳ <b>TRANSACTION OF <b>$1,785</b> IN PROGRESS</b><br><br>
+<b>Note:</b> We'll send the recipient an email once the transaction is completed, but it may be quicker to share this link with them.
+</div>
 
-    <div class="section">
-        <div class="row">
-            <span class="label">Status</span>
-            <span class="pending" id="statusText">APPROVED ✓</span>
-        </div>
-        <div class="row">
-            <span class="label">Transaction ID</span>
-            <span class="value">TXN-9F3A82K</span>
-        </div>
-        <div class="row">
-            <span class="label">Date</span>
-            <span class="value">17 Feb 2026 · 9:00 PM</span>
-        </div>
-    </div>
+<div class="section">
+<div class="row">
+<span class="label">Status</span>
+<span class="pending" id="statusText">APPROVED ✓</span>
+</div>
+<div class="row">
+<span class="label">Transaction ID</span>
+<span class="value">TXN-9F3A82K</span>
+</div>
+<div class="row">
+<span class="label">Date</span>
+<span class="value">17 Feb 2026 · 9:00 PM</span>
+</div>
+</div>
 
-    <div class="section">
-        <div class="row"><span class="label">From (PayPal User)</span></div>
-        <div class="row"><span class="label">Name</span><span class="value">DXXXy</span></div>
-        <div class="row"><span class="label">Email</span><span class="value">MXXXX4@hotmail.com</span></div>
-    </div>
+<div class="section">
+<div class="row"><span class="label">From (PayPal User)</span></div>
+<div class="row"><span class="label">Name</span><span class="value">DXXXy</span></div>
+<div class="row"><span class="label">Email</span><span class="value">MXXXX4@hotmail.com</span></div>
+</div>
 
-    <div class="section">
-        <div class="row"><span class="label">To (PayPal User)</span></div>
-        <div class="row"><span class="label">Name</span><span class="value">Mercy Kamket</span></div>
-        <div class="row"><span class="label">Email</span><span class="value">kamketmercy@gmail.com</span></div>
-        <div class="row"><span class="label">Description</span><span class="value">Weekly Allowance</span></div>
-    </div>
+<div class="section">
+<div class="row"><span class="label">To (PayPal User)</span></div>
+<div class="row"><span class="label">Name</span><span class="value">Mercy Kamket</span></div>
+<div class="row"><span class="label">Email</span><span class="value">kamketmercy@gmail.com</span></div>
+<div class="row"><span class="label">Description</span><span class="value">Weekly Allowance</span></div>
+</div>
 
-    <div class="section">
-        <div class="row"><span class="label">Amount Sent</span><span class="value">$1,785.00</span></div>
-        <div class="row"><span class="label">Transaction Fee</span><span class="value">$36.80</span></div>
-        <div class="row"><span class="label">Total</span><span class="value">$1,821.80</span></div>
-        <div class="row"><span class="label">Fee Type</span><span class="value">Bitcoin (BTC)</span></div>
-    </div>
+<div class="section">
+<div class="row"><span class="label">Amount Sent</span><span class="value">$1,785.00</span></div>
+<div class="row"><span class="label">Transaction Fee</span><span class="value">$36.80</span></div>
+<div class="row"><span class="label">Total</span><span class="value">$1,821.80</span></div>
+<div class="row"><span class="label">Fee Type</span><span class="value">Bitcoin (BTC)</span></div>
+</div>
 
-    <div class="section progress-box">
-        <div class="row">
-            <span class="approved">✓ Authorized</span>
-            <span class="pending"><span id="percent">17%</span> Complete</span>
-        </div>
-        <div class="progress-track">
-            <div class="progress-bar" id="bar"></div>
-        </div>
-        <div class="spinner-row">
-            <div class="spinner-ring"></div>
-            <span class="pending">TRANSACTION IN PROGRESS</span>
-        </div>
-        <div class="spinner-row">
-            <div class="spinner-ring"></div>
-            <span class="pending">Current Status: PROCESSING...</span>
-        </div>
-        
-        <button id="confirmBtn">
-            <span id="confirmText">Close</span>
-            <span class="btn-spinner" id="btnSpinner"></span>
-        </button>
-    </div>
+<div class="section progress-box">
+<div class="row">
+<span class="approved">✓ Authorized</span>
+<span class="pending"><span id="percent">17%</span> Complete</span>
+</div>
+
+<div class="progress-track">
+<div class="progress-bar" id="bar"></div>
+</div>
+
+<div class="spinner-row">
+<div class="spinner-ring"></div>
+<span class="pending">TRANSACTION IN PROGRESS</span>
+</div>
+
+<div class="spinner-row">
+<div class="spinner-ring"></div>
+<span class="pending">Current Status: PROCESSING...</span>
+</div>
+
+<button id="confirmBtn">
+<span id="confirmText">Close</span>
+<span class="btn-spinner" id="btnSpinner"></span>
+</button>
+
+</div>
 </div>
 
 <div class="nav-footer-links">
-    <a href="#">Help</a>
-    <a href="#">Contact</a>
-    <a href="#">Fees</a>
-    <a href="#">Security</a>
-    </div>
+<a href="#">Help</a>
+<a href="#">Contact</a>
+<a href="#">Fees</a>
+<a href="#">Security</a>
 </div>
 
 <footer class="purple-footer">
-    <b>Copyright © 2026 PayPal</b>
-    <a href="#" class="up-arrow">^</a>
+<b>Copyright © 2026 PayPal</b>
+<a href="#" class="up-arrow">^</a>
 </footer>
 
 <script>
+document.addEventListener("DOMContentLoaded", function(){
+
 const bar = document.getElementById("bar");
 const percent = document.getElementById("percent");
 const confirmBtn = document.getElementById("confirmBtn");
@@ -315,17 +318,27 @@ const confirmText = document.getElementById("confirmText");
 const btnSpinner = document.getElementById("btnSpinner");
 const toast = document.getElementById("toast");
 
-bar.style.width = "17%";
-percent.innerText = "17%";
+function syncProgress(){
+let value = parseInt(percent.textContent.replace("%",""));
+if(!isNaN(value) && value >= 0 && value <= 100){
+bar.style.width = value + "%";
+}
+}
 
+syncProgress();
 
-    confirmText.innerText = "Back To Activity";
-    btnSpinner.style.display = "inline-block";
-    toast.classList.add("show");
-    setTimeout(() => { toast.classList.remove("show"); }, 4000);
-};
+confirmBtn.addEventListener("", function(){
+btnSpinner.style.display = "inline-block";
+
+setTimeout(function(){
+toast.classList.remove("show");
+confirmText.textContent = "Back To Activity";
+
+},3000);
+});
+
+});
 </script>
 
 </body>
-</html>
- 
+</html> 
