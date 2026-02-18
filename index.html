@@ -14,36 +14,37 @@ body{
     color:#111827;
 }
 
-/* TOP LOGO AREA */
-.top-logo-container{
-    padding:20px 0 10px 25px;
-    background:#fff;
+/* TOP NAV LOGO (from 1000025577.jpg) */
+.top-nav {
+    background: #fff;
+    padding: 15px 25px;
+    border-bottom: 1px solid #e6e9ec;
 }
-.paypal-logo{
-    width:120px;
-    display:block;
+.paypal-main-logo {
+    height: 24px;
+    display: block;
 }
 
 /* CARD */
 .card{
     background:#fff;
     max-width:420px;
-    margin:10px auto 30px auto;
+    margin:20px auto;
     padding:22px;
     border-radius:14px;
     box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
 
-/* HEADER */
+/* BUSINESS HEADER (from 1000025579.jpg) */
 .header{
     display:flex;
     align-items:center;
     gap:12px;
     margin-bottom:16px;
 }
-.logo-circle{
-    width:38px;
-    height:38px;
+.logo-badge{
+    width:42px;
+    height:42px;
     border-radius:50%;
     background:#003087;
     color:#fff;
@@ -51,14 +52,43 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
+    font-size: 16px;
 }
 .header h2{
-    font-size:18px;
+    font-size:20px;
     color:#003087;
     margin:0;
+    font-weight: 700;
 }
 
-/* NOTICE */
+/* NOTICE BOX */
+.notice{
+    background:#fff4e5;
+    border-left:4px solid #ff9800;
+    padding:14px;
+    border-radius:8px;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+/* SECTIONS & ROWS */
+.section{ margin-top:18px; }
+.row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #e6e9ec;
+    font-size:14px;
+}
+.row:last-child{ border-bottom:none; }
+.label{ color:#6b7280; }
+.value{ font-weight:600; }
+
+/* COLORS */
+.approved{ color:#2e7d32; font-weight:600; }
+.pending{ color:#f59e0b; font-weight:600; }
+
+/* ALERT */
 .alert{
     background:#f0f6ff;
     border-left:4px solid #0070ba;
@@ -68,27 +98,8 @@ body{
     margin-top:20px;
 }
 
-/* SECTIONS */
-.section{ margin-top:18px; }
-
-.row{
-    display:flex;
-    justify-content:space-between;
-    padding:10px 0;
-    border-bottom:1px solid #e6e9ec;
-    font-size:14px;
-}
-.row:last-child{ border-bottom:none; }
-
-.label{ color:#6b7280; }
-.value{ font-weight:600; }
-
-.approved{ color:#2e7d32; font-weight:600; }
-.pending{ color:#f59e0b; font-weight:600; }
-
-/* PROGRESS */
+/* PROGRESS BAR */
 .progress-box{ margin-top:20px; }
-
 .progress-track{
     width:100%;
     height:10px;
@@ -99,17 +110,17 @@ body{
 }
 .progress-bar{
     height:100%;
-    width:0%;
+    width:10%;
     background:linear-gradient(90deg,#0070ba,#005ea6);
-    transition:width .5s ease;
+    animation:pulse 1.2s infinite;
 }
 
-/* SPINNER ROW */
+/* SPINNER ROW (Optimized from 1000025565.jpg) */
 .spinner-row{
     display:flex;
     align-items:center;
     gap:12px;
-    padding:10px 12px;
+    padding:12px;
     background:#f3f4f6;
     border-radius:8px;
     margin-top:8px;
@@ -122,7 +133,6 @@ body{
     border-top-color:#0070ba;
     animation:spin 1s linear infinite;
 }
-@keyframes spin{ to{ transform:rotate(360deg);} }
 
 /* BUTTON */
 button{
@@ -136,11 +146,13 @@ button{
     font-weight:600;
     cursor:pointer;
     margin-top:25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
-button.processing{
-    background:#f59e0b;
-    cursor:not-allowed;
-}
+button.processing{ background:#f59e0b; cursor:not-allowed; color: #fff; }
+
 .btn-spinner{
     width:16px;
     height:16px;
@@ -149,50 +161,42 @@ button.processing{
     border-radius:50%;
     display:none;
     animation:spin .8s linear infinite;
-    margin-left:10px;
 }
 
-/* NAVIGATION LINKS */
-.nav-footer-links{
-    max-width:420px;
-    margin:40px auto 20px auto;
-    padding:0 20px;
-    display:grid;
-    grid-template-columns: repeat(5, auto);
-    gap:15px;
-    justify-content:start;
+/* FOOTER NAV LINKS (from 1000025575.jpg) */
+.footer-nav {
+    max-width: 420px;
+    margin: 40px auto 20px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 25px;
 }
-.nav-footer-links a{
-    text-decoration:none;
-    color:#001C64;
-    font-weight:500;
-    font-size:15px;
-}
-.nav-footer-links .break{
-    grid-column:1 / -1;
-    display:flex;
-    gap:15px;
+.footer-nav a {
+    text-decoration: none;
+    color: #001C64;
+    font-weight: 600;
+    font-size: 14px;
 }
 
-/* PURPLE FOOTER */
-.purple-footer{
-    background-color:#613191;
-    color:#ffffff;
-    padding:20px;
-    text-align:center;
-    position:relative;
-    font-size:14px;
-    margin-top:20px;
+/* PURPLE COPYRIGHT FOOTER (from 1000025567.jpg) */
+.copyright-bar {
+    background-color: #613191;
+    color: #ffffff;
+    padding: 22px 20px;
+    text-align: center;
+    position: relative;
+    font-size: 14px;
+    margin-top: 10px;
 }
-.up-arrow{
-    position:absolute;
-    right:25px;
-    top:50%;
-    transform:translateY(-50%);
-    color:white;
-    text-decoration:none;
-    font-size:20px;
-    font-weight:bold;
+.scroll-top {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
 }
 
 /* TOAST */
@@ -208,41 +212,44 @@ button.processing{
     font-size:14px;
     box-shadow:0 10px 25px rgba(0,0,0,.2);
     opacity:0;
-    pointer-events:none;
     transition:all .4s ease;
-    z-index:999;
+    z-index: 999;
+    pointer-events: none;
 }
-.toast.show{
-    opacity:1;
-    transform:translateX(-50%) translateY(0);
-}
+.toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+@keyframes spin{ to{ transform:rotate(360deg);} }
+@keyframes pulse{ 0%{opacity:.6;} 50%{opacity:1;} 100%{opacity:.6;} }
 </style>
 </head>
 
 <body>
 
+<div class="toast" id="toast">⏳ Fee verification started. Awaiting confirmation…</div>
 
-<div class="top-logo-container">
-<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="paypal-logo">
-</div>
+<header class="top-nav">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="paypal-main-logo">
+</header>
 
 <div class="card">
 
-<div class="alert">
-⏳ <b>TRANSACTION OF <b>$1,785</b> IN PROGRESS</b><br><br>
-<b>Note:</b> We'll send the recipient an email once the transaction is completed, but it may be quicker to share this link with them.
-</div>
+    <div class="notice">
+        ⚠ <b>PAYMENT ON HOLD</b><br><br>
+        <b>Reason:</b> The payment of <b>$3,500</b> sent to you is currently pending due to our
+        <b>International Transaction Fee</b> policy.<br> To process the payment, a fee of
+        <b>($36.80)</b> is required. Unfortunately, this fee cannot be deducted from the amount sent, due to our policy restrictions.
+    </div>
 
-<div class="section">
-<div class="row">
-<span class="label">Status</span>
-<span class="pending" id="statusText">APPROVED ✓</span>
-</div>
-<div class="row">
-<span class="label">Transaction ID</span>
-<span class="value">TXN-9F3A82K</span>
-</div>
-<div class="row">
+    <div class="section">
+        <div class="row">
+            <span class="label">Status</span>
+            <span class="pending" id="statusText">PENDING</span>
+        </div>
+        <div class="row">
+            <span class="label">Transaction ID</span>
+            <span class="value">TXN-9F3A82K</span>
+        </div>
+        <div class="row">
 <span class="label">Date</span>
 <span class="value">17 Feb 2026 · 9:00 PM</span>
 </div>
@@ -268,77 +275,70 @@ button.processing{
 <div class="row"><span class="label">Fee Type</span><span class="value">Bitcoin (BTC)</span></div>
 </div>
 
-<div class="section progress-box">
-<div class="row">
-<span class="approved">✓ Authorized</span>
-<span class="pending"><span id="percent">17%</span> Complete</span>
+    <div class="alert">
+        <b>Note:</b> Funds will be credited once the transaction fee is confirmed.
+    </div>
+
+    <div class="section progress-box">
+        <div class="row">
+            <span class="approved">✓ Authorized</span>
+            <span class="pending"><span id="percent">29%</span> Complete</span>
+        </div>
+        <div class="progress-track">
+            <div class="progress-bar" id="bar"></div>
+        </div>
+
+        <div class="spinner-row">
+            <div class="spinner-ring"></div>
+            <span class="pending">TRANSACTION ON HOLD</span>
+        </div>
+        <div class="spinner-row">
+            <div class="spinner-ring"></div>
+            <span class="pending">Current Status: PENDING</span>
+        </div>
+        
+        <button id="confirmBtn">
+            <span id="confirmText">Confirm Fee Payment</span>
+            <span class="btn-spinner" id="btnSpinner"></span>
+        </button>
+    </div>
 </div>
 
-<div class="progress-track">
-<div class="progress-bar" id="bar"></div>
-</div>
+<nav class="footer-nav">
+    <a href="#">Help</a>
+    <a href="#">Contact</a>
+    <a href="#">Fees</a>
+    <a href="#">Security</a>
+</nav>
 
-<div class="spinner-row">
-<div class="spinner-ring"></div>
-<span class="pending">TRANSACTION IN PROGRESS</span>
-</div>
-
-<div class="spinner-row">
-<div class="spinner-ring"></div>
-<span class="pending">Current Status: PROCESSING...</span>
-</div>
-
-<button id="confirmBtn">
-<span id="confirmText">Close</span>
-<span class="btn-spinner" id="btnSpinner"></span>
-</button>
-
-</div>
-</div>
-
-<div class="nav-footer-links">
-<a href="#">Help</a>
-<a href="#">Contact</a>
-<a href="#">Fees</a>
-<a href="#">Security</a>
-</div>
-
-<footer class="purple-footer">
-<b>Copyright © 2026 PayPal</b>
-<a href="#" class="up-arrow">^</a>
+<footer class="copyright-bar">
+    <b>Copyright © 2026 PayPal</b>
+    <a href="#" class="scroll-top">^</a>
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", function(){
-
 const bar = document.getElementById("bar");
 const percent = document.getElementById("percent");
+const statusText = document.getElementById("statusText");
 const confirmBtn = document.getElementById("confirmBtn");
 const confirmText = document.getElementById("confirmText");
 const btnSpinner = document.getElementById("btnSpinner");
 const toast = document.getElementById("toast");
 
-function syncProgress(){
-let value = parseInt(percent.textContent.replace("%",""));
-if(!isNaN(value) && value >= 0 && value <= 100){
-bar.style.width = value + "%";
-}
-}
+bar.style.width = "29%";
+percent.innerText = "29%";
 
-syncProgress();
+confirmBtn.onclick = () => {
+    confirmBtn.classList.add("processing");
+    confirmBtn.disabled = true;
+    confirmText.innerText = "Processing…";
+    btnSpinner.style.display = "inline-block";
+    statusText.innerText = "PROCESSING";
 
-confirmBtn.addEventListener("", function(){
-btnSpinner.style.display = "inline-block";
-
-setTimeout(function(){
-toast.classList.remove("show");
-confirmText.textContent = "Back To Activity";
-
-},3000);
-});
-
-});
+    toast.classList.add("show");
+    setTimeout(() => { toast.classList.remove("show"); }, 4000);
+};
 </script>
 
 </body>
-</html> 
+</html>
